@@ -1,0 +1,30 @@
+<!--
+  event binding - це механізм в Angular, який дозволяє реагувати на події користувача
+  (наприклад, click, input, change) і викликати методи компонента.
+  синтаксис (event)="statement"
+-->
+
+<div class="example">
+  <h4>Виклик методу</h4>
+  <div><b>{{randomValue()}}</b></div>
+  <button (click)="update()">Оновити</button>
+</div>
+
+<div class="example">
+  <h4>Вираз в якості значення</h4>
+  <div><b>{{randomValue()}}</b></div>
+  <button (click)="randomValue.set(777)">Оновити</button>
+</div>
+
+<!-- (keydown) — слухає натискання будь-якої клавіші -->
+<div class="example">
+  <h4>Обробка подій клавіатури</h4>
+  <input (keydown.enter)="onEnterPress($event)" value="Натисніть Enter" />
+</div>
+
+<!-- shift, alt, ctrl, meta - можна обмежити подію комбінацією клавіш -->
+<div class="example">
+  <h4>Обробка комбінації натиснутих клавіш</h4>
+  <input (keydown.shift.a)="onCombinationPress($event)" value="Натисніть Shift + A" />
+</div>
+

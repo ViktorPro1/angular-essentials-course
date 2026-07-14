@@ -1,0 +1,32 @@
+<!--
+    {{expression}} - “mustache” синтаксис, який вказує, що всередині міститься вираз, який потрібно обчислити.
+    Інтерполяція - це спосіб поєднання розмітки з результатами обчислення виразів, розміщених у дужках {{ }}.
+-->
+
+<div class="example">
+  <h4>User Info</h4>
+  <p>User Name {{userName}}</p> <!--рядкове значення-->
+  <p>User Email <a href="mailto:{{userEmail()}}">{{userEmail()}}</a></p> <!--сигнал-->
+</div>
+
+<div class="example">
+  <h4>User Info 2</h4>
+  <p>User Name {{user().name}}</p>
+  <p>User Email <a href="mailto:{{user().email}}">{{user().email}}</a></p>
+</div>
+
+<!--
+?. - optional chaining operator
+Дозволяє безпечно звертатися до вкладених властивостей об’єкта,
+не викликаючи помилки, якщо якась із них є undefined або null.
+-->
+<div class="example">
+  <h4>User Info 3</h4>
+  <p>User Name {{unloadedUser()?.name}}</p>
+  <p>User Email <a href="mailto:{{unloadedUser()?.email}}">{{unloadedUser()?.email}}</a></p>
+</div>
+
+<!-- Сбробуйте прибрати коментар з наступного коду -->
+<!-- <h2>User Info 4</h2>
+<p>User Name {{unloadedUser().name}}</p>
+<p>User Email <a href="mailto:{{unloadedUser().email}}">{{unloadedUser().email}}</a></p> -->

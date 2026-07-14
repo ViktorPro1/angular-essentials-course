@@ -1,0 +1,29 @@
+<div class="example">
+  <h4>Синтаксис керування потоком - {{'@switch'}}</h4>
+  <table>
+    <!--
+    Диркетива for вимагає параметру track
+    З його допомогою Angular буде відстежувати елементи колекції та оновлювати DOM лише коли це необхідно
+    -->
+    @for(task of tasks(); track task.id){
+    <tr>
+      <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+      <td>
+        @switch (task.priority) {
+        @case ('high') { <p>🔥 {{ task.title }}</p> }
+        @case ('medium') { <p>⚙️ {{ task.title }}</p> }
+        @default { <p>🕓 {{ task.title }}</p> }
+        }
+      </td>
+      <td>
+        @if(task.completed) {
+        ✅Виконана
+        } @else {
+        ⛔Не виконана
+        }
+      </td>
+    </tr>
+    }
+  </table>
+</div>

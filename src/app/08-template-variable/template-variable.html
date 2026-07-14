@@ -1,0 +1,33 @@
+<!--
+ templatge variable - синтаксис, що дозволяє створювати змінні в шаблоні
+ @let variableName = expression
+ -->
+
+<div class="example">
+  <h4>Без використання змінної</h4>
+  @for (user of users(); track user.id) {
+  <div>{{ user.lastName }} {{ user.firstName }}</div>
+  <div>
+    <span>{{ user.shippingAddress.main.number }}&nbsp;</span>
+    <span>{{ user.shippingAddress.main.street }}&nbsp;</span>
+    <span>{{ user.shippingAddress.main.zipcode }}&nbsp;</span>
+    <span>{{ user.shippingAddress.main.city }}</span>
+  </div>
+  <br>
+  }
+</div>
+
+<div class="example">
+  <h4>З використанням змінної</h4>
+  @for (user of users(); track user.id) {
+  <div>{{ user.lastName }} {{ user.firstName }}</div>
+  <div>
+    @let address = user.shippingAddress.main;
+    <span>{{ address.number }}&nbsp;</span>
+    <span>{{ address.street }}&nbsp;</span>
+    <span>{{ address.zipcode }}&nbsp;</span>
+    <span>{{ address.city }}</span>
+  </div>
+  <br>
+  }
+</div>

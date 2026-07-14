@@ -1,0 +1,20 @@
+<div class="example">
+  <h4>Синтаксис керування потоком - {{'@if'}}</h4>
+  @if(tasks().length == 0) {
+  <p>Немає задач</p>
+  } @else {
+  <p>Кількість задач - {{tasks().length}}</p>
+  }
+
+  <button (click)="addTasks()">Додати задачі</button>
+</div>
+
+<div class="example">
+  <h4>Псевдонім для результату</h4>
+  <small>Зручно використовувати з сигналами які можуть містити null чи undefined</small>
+  @if(taskModel(); as model) {
+  <p>{{model.title}}</p>
+  } @else {
+  <p>Завантаження...</p>
+  }
+</div>

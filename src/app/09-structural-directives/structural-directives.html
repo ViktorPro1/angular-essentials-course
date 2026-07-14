@@ -1,0 +1,25 @@
+<div class="example">
+  <h4>*ngFor, *ngSwitch, *ngIf</h4>
+  <table>
+    <!--
+    При використання Angular до 18 версії для формування інтерфейсу використовували
+    структурні директиви *ngFor, *ngSwitch, *ngIf
+    Наразі вони застарілі і рекомендується використовувати новий синтаксис
+    -->
+    <tr *ngFor="let task of tasks(); let i = index; let even = even;" [class.gray]="even">
+      <td>#{{i}}-{{ task.id }}</td>
+      <td>{{ task.title }}</td>
+      <td [ngSwitch]="task.priority">
+        <p *ngSwitchCase="'high'">🔥 {{ task.title }}</p>
+        <p *ngSwitchCase="'medium'">⚙️ {{ task.title }}</p>
+        <p *ngSwitchDefault>🕓 {{ task.title }}</p>
+      </td>
+      <td>
+        <ng-container *ngIf="task.completed; else notDone">
+          ✅ Вико́нана
+        </ng-container>
+        <ng-template #notDone>⛔ Не виконана</ng-template>
+      </td>
+    </tr>
+  </table>
+</div>

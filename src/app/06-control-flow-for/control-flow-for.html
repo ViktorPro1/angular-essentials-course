@@ -1,0 +1,66 @@
+<div class="example">
+  <h4>Синтаксис керування потоком - {{'@for'}}</h4>
+
+  <table>
+    <!--
+    Диркетива for вимагає параметру track
+    З його допомогою Angular буде відстежувати елементи колекції та оновлювати DOM лише коли це необхідно
+    -->
+    @for(task of tasks(); track task.id){
+    <tr>
+      <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+      <td>{{task.priority}}</td>
+      <td>
+        @if(task.completed) {
+        Виконана
+        } @else {
+        Не виконана
+        }
+      </td>
+    </tr>
+    }
+  </table>
+</div>
+
+<div class="example">
+  <h4>Синтаксис керування потоком - {{'@empty'}}</h4>
+
+  <ul>
+    @for(task of emptyTasks(); track task){
+    <li>task.title</li>
+    } @empty {
+    <li>Список задач пустий</li>
+    }
+  </ul>
+</div>
+
+<div class="example">
+  <h4>Змінні для {{'@for'}}</h4>
+  <pre>
+    • $index — індекс поточного елемента, починаючи з нуля
+    • $first — булеве значення, що дорівнює true, якщо елемент є першим у колекції
+    • $last — булеве значення, що дорівнює true, якщо елемент є останнім у колекції
+    • $even — булеве значення, що дорівнює true, якщо індекс елемента парний
+    • $odd — булеве значення, що дорівнює true, якщо індекс елемента непарний
+  </pre>
+
+  <table>
+    @for(task of tasks(); track task.id){
+    <!-- [class.className]="expression" якщо expression true CSS класс className буде додано до елементу -->
+    <tr [class.gray]="$even">
+      <td>row # {{$index}}</td>
+      <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+      <td>{{task.priority}}</td>
+      <td>
+        @if(task.completed) {
+        Виконана
+        } @else {
+        Не виконана
+        }
+      </td>
+    </tr>
+    }
+  </table>
+</div>

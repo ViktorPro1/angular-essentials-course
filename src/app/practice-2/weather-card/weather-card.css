@@ -1,0 +1,44 @@
+.weather-card {
+  max-width: 320px;
+  padding: 16px;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+.day {
+  background-color: #f0f4f8;
+  color: #1a1a1a;
+}
+
+.night {
+  background-color: #1a2233;
+  color: #f0f4f8;
+}
+
+.datetime {
+  font-size: 12px;
+  color: #ff7a45;
+  margin: 0 0 4px;
+}
+
+.location {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.temp-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.condition {
+  font-size: 13px;
+  margin: 4px 0 12px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}

@@ -1,0 +1,26 @@
+@if (cities().length === 0) {
+<p>Немає доступних даних про погоду</p>
+} @else {
+<table>
+  <thead>
+    <tr>
+      <th>Місто</th>
+      <th>Країна</th>
+      <th>Температура</th>
+      <th>Стан неба</th>
+      <th>Вологість</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of cities(); track item.city) {
+    <tr>
+      <td>{{ item.city }}</td>
+      <td>{{ item.country }}</td>
+      <td>{{ item.temperature }}°C</td>
+      <td>{{ item.condition }}</td>
+      <td>{{ item.humidity }}%</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}

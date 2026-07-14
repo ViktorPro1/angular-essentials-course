@@ -1,0 +1,43 @@
+<div class="catalog-layout">
+  <aside class="sidebar">
+    <h3>Price</h3>
+    <div class="price-filter">
+      <label>
+        Мін: {{ minPrice() }}
+        <input type="range" min="0" max="3000" step="50" [value]="minPrice()"
+          (input)="minPrice.set(+$any($event.target).value)">
+      </label>
+      <label>
+        Макс: {{ maxPrice() }}
+        <input type="range" min="0" max="3000" step="50" [value]="maxPrice()"
+          (input)="maxPrice.set(+$any($event.target).value)">
+      </label>
+    </div>
+
+    <h3>Category</h3>
+    @for (category of categories(); track category) {
+    <label class="category-item">
+      <input type="checkbox" [checked]="selectedCategories().has(category)" (change)="toggleCategory(category)">
+      {{ category }}
+    </label>
+    }
+  </aside>
+
+  <main class="products-grid">
+    @for (product of filteredProducts(); track product.id) {
+    <div class="product-card">
+      <div class="product-image-placeholder"></div>
+      <p class="product-name">{{ product.name }}</p>
+      <p class="product-price">
+        @if (product.discount > 0) {
+        <span class="old-price">{{ product.price }} грн</span>
+        <span class="new-price">{{ finalPrice(product) }} грн</span>
+        } @else {
+        <span class="new-price">{{ product.price }} грн</span>
+        }
+      </p>
+      <button class="buy-btn">Buy</button>
+    </div>
+    }
+  </main>
+</div>

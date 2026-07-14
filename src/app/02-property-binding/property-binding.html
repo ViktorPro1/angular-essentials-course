@@ -1,0 +1,23 @@
+<!--
+	Property binding - це механізм Angular, який дозволяє передавати дані з компонента
+	до властивостей HTML-елемента або директиви
+	за допомогою синтаксису [property]="expression".
+-->
+
+<!-- Синтаксичний цукор: -->
+Interpolation: <span>{{user().name}}</span> <br />
+<!-- Еквівалент через property binding до textContent (те ж саме, явний варіант) -->
+Property Binding: <span [textContent]="user().name"></span>
+
+<div class="example">
+	<h4>Binding до властивості елементу</h4>
+	<!-- привязка зображення -->
+	<img [src]="user().avatarUrl" alt="avatar" class="avatar" />
+
+	<!-- прив'язка булевої властивості disabled -->
+	<button [disabled]="!user().isActive">Send</button>
+	<!-- неправильний пібхід, наявніть атрибуту disabled робить кнопку не активною незалежно від значення user().isActive -->
+	<button disabled="{{!user().isActive}}">Send</button>
+	<button (click)="toggleActive()">Toggle active</button>
+	<div> user().isActive = {{ user().isActive }}</div>
+</div>

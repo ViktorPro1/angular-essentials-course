@@ -1,0 +1,11 @@
+<div class="example">
+  <h4>Використання ngStyle</h4>
+  <p [style.color]="getColor()">Використання [style.property] щоб привязати значення до однієї CSS властивості</p>
+  <p [ngStyle]="getStyles()">Використання директиви ngStyle для задачі декількох стилів</p>
+</div>
+
+<div class="example">
+  <h4>Використання ngClass</h4>
+  <p [class.highlited]="isHiglited()">Використання [class.className] додати або видалити CSS клас</p>
+  <p [ngClass]="getClass()">Використання директиви ngClass щоб контролювати додавання чи видалення CSS класів за допомогою об'єкту</p>
+</div>

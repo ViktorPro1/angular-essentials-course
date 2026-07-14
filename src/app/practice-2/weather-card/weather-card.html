@@ -1,0 +1,21 @@
+<div class="weather-card" [class.day]="weather().isDay" [class.night]="!weather().isDay">
+  <p class="datetime">{{ weather().dateTime }}</p>
+  <h2 class="location">{{ weather().city }}, {{ weather().country }}</h2>
+
+  <div class="temperature">
+    <span class="temp-value">{{ weather().temperature }}°C</span>
+  </div>
+
+  <p class="condition">
+    Feels like {{ weather().feelsLike }}°C. {{ weather().condition }}
+  </p>
+
+  <div class="details">
+    <span>{{ weather().windSpeed }}m/s {{ weather().windDirection }}</span>
+    <span>{{ weather().pressure }}hPa</span>
+    <span>Humidity: {{ weather().humidity }}%</span>
+    <span>UV: {{ weather().uvIndex }}</span>
+    <span>Dew point: {{ weather().dewPoint }}°C</span>
+    <span>Visibility: {{ weather().visibility }}km</span>
+  </div>
+</div>
